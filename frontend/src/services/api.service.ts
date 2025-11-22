@@ -22,7 +22,6 @@ export const notesApi = {
     //Get /api/note
     getAllNotes: async (): Promise<Note[]> => {
         const response = await api.get<Note[]>(`/notes`);
-        debugger;
         return response.data;
     },
     //Get /api/note/:id

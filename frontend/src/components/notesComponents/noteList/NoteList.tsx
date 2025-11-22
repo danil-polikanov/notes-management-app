@@ -27,12 +27,12 @@ export const NotesList = () => {
     const [showForm, setShowForm] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
-    // Загружаем заметки при монтировании компонента
+    // show all notes on component mount
     useEffect(() => {
         dispatch(fetchNotes());
     }, [dispatch]);
 
-    // Показываем ошибки через toast
+    // Show error toast if error occurs
     useEffect(() => {
         if (error) {
             toast.error(error);
@@ -83,7 +83,7 @@ export const NotesList = () => {
         setShowForm(true);
     };
 
-    // Фильтрация заметок по поисковому запросу
+    // Filter notes based on search query
     const filteredNotes = notes.filter(
         (note) =>
             note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
