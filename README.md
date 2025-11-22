@@ -4,16 +4,16 @@ Application for creating, editing, and deleting notes.
 
 ## Tech Stack
 
--   Backend: .NET 8 Web API
+-   Backend: .NET 9 Web API
 -   Frontend: React + TypeScript
--   Database: PostgreSQL/SQL Server
+-   Database: NS SQL Server
 -   Docker
 
 ## Getting Started
 
 ### Prerequisites
 
--   .NET 8 SDK
+-   .NET 9 SDK
 -   Node.js 18+
 -   Docker & Docker Compose
 
