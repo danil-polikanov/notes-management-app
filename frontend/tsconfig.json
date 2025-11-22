@@ -26,6 +26,6 @@
             "@/*": ["./src/*"]
         }
     },
-    "include": ["src"],
-    "references": [{ "path": "./tsconfig.node.json" }]
+    "include": ["src", "cypress/e2e"],
+    "references": [{ "path": "./cypress/e2e/tsconfig.json" }]
 }

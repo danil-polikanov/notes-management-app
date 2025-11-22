@@ -7,11 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import './styles/global.scss';
 
 function App() {
-    // Восстанавливаем сохраненный язык при загрузке
     useEffect(() => {
         const savedLanguage = localStorage.getItem('language');
         if (savedLanguage) {
-            // i18n уже инициализирован в main.tsx
         }
     }, []);
 

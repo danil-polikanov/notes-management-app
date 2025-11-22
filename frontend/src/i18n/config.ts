@@ -3,7 +3,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// Переводы
+// Translation resources
 const resources = {
     en: {
         translation: {
@@ -48,7 +48,6 @@ const resources = {
                 select: 'Language',
                 en: 'English',
                 uk: 'Українська',
-                ru: 'Русский',
             },
             date: {
                 created: 'Created',
@@ -99,7 +98,6 @@ const resources = {
                 select: 'Мова',
                 en: 'English',
                 uk: 'Українська',
-                ru: 'Русский',
             },
             date: {
                 created: 'Створено',
@@ -107,63 +105,11 @@ const resources = {
             },
         },
     },
-    ru: {
-        translation: {
-            app: {
-                title: 'Приложение Заметок',
-                subtitle: 'Управляйте своими заметками легко',
-            },
-            notes: {
-                title: 'Мои Заметки',
-                createNew: 'Создать Новую Заметку',
-                edit: 'Редактировать Заметку',
-                noNotes: 'Заметок пока нет. Создайте свою первую заметку!',
-                deleteConfirm: 'Вы уверены, что хотите удалить эту заметку?',
-                search: 'Поиск заметок...',
-            },
-            form: {
-                titleLabel: 'Заголовок',
-                titlePlaceholder: 'Введите заголовок заметки',
-                contentLabel: 'Содержание',
-                contentPlaceholder:
-                    'Напишите содержание вашей заметки здесь...',
-                save: 'Сохранить',
-                cancel: 'Отмена',
-                create: 'Создать',
-                update: 'Обновить',
-                delete: 'Удалить',
-                edit: 'Редактировать',
-            },
-            validation: {
-                titleRequired: 'Заголовок обязателен',
-                titleMin: 'Заголовок должен содержать минимум 3 символа',
-                titleMax: 'Заголовок не должен превышать 100 символов',
-                contentRequired: 'Содержание обязательно',
-                contentMin: 'Содержание должно содержать минимум 5 символов',
-            },
-            messages: {
-                created: 'Заметка успешно создана',
-                updated: 'Заметка успешно обновлена',
-                deleted: 'Заметка успешно удалена',
-                error: 'Произошла ошибка',
-            },
-            language: {
-                select: 'Язык',
-                en: 'English',
-                uk: 'Українська',
-                ru: 'Русский',
-            },
-            date: {
-                created: 'Создано',
-                updated: 'Обновлено',
-            },
-        },
-    },
 };
 
 i18n.use(initReactI18next).init({
     resources,
-    lng: 'en', // Язык по умолчанию
+    lng: 'en',
     fallbackLng: 'en',
     interpolation: {
         escapeValue: false,

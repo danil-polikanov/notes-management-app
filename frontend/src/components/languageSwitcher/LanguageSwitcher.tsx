@@ -14,7 +14,6 @@ const LanguageSwitcher = () => {
     const languages = [
         { code: 'en', label: t('language.en') },
         { code: 'uk', label: t('language.uk') },
-        { code: 'ru', label: t('language.ru') },
     ];
 
     return (
