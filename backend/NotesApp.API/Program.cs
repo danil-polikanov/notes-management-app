@@ -18,7 +18,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
-builder.Services.AddScoped<INoteRepository, NoteRepository>();
+builder.Services.AddSingleton<INoteRepository, InMemoryNoteRepository>();
+//builder.Services.AddScoped<INoteRepository, NoteRepository>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddCors(options =>
 {

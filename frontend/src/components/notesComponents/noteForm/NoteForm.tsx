@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Note, CreateNoteDto, UpdateNoteDto } from '@/types/note.types';
+import { Note, CreateNoteDto } from '@/types/note.types';
 import './NoteForm.scss';
 
 interface NoteFormProps {
