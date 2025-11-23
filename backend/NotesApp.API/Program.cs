@@ -23,9 +23,11 @@ builder.Services.AddSingleton<INoteRepository, InMemoryNoteRepository>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddCors(options =>
 {
+    DotNetEnv.Env.Load();
+    var url = Environment.GetEnvironmentVariable("ASPNETCORE_URL");
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins(url)
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
