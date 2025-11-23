@@ -90,7 +90,8 @@ namespace NotesApp.API.Controllers
 
                 _logger.LogInformation("Note successfully created with Id: {NoteId}", created.Id);
 
-                return CreatedAtAction(nameof(GetByIdAsync), new { id = created.Id }, created);
+                return Ok(created);
+                
             }
             catch (InvalidOperationException ex)
             {

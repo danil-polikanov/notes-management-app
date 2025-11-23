@@ -42,7 +42,7 @@ export const NoteForm = ({
             newErrors.title = t('validation.titleRequired');
         } else if (title.trim().length < 3) {
             newErrors.title = t('validation.titleMin');
-        } else if (title.trim().length > 100) {
+        } else if (title.trim().length > 200) {
             newErrors.title = t('validation.titleMax');
         }
 

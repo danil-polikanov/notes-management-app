@@ -9,7 +9,7 @@ describe('Notes App E2E Test', () => {
 
     it('should create a new note successfully', () => {
         const noteTitle = 'Test Note ' + Date.now();
-        const noteContent = 'This is a test note content.';
+        const noteContent = 'This is a test content.';
 
         cy.get('[data-cy="create-note-button"]').click();
 
