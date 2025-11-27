@@ -24,11 +24,11 @@ namespace NotesApp.API.Controllers
         /// </summary>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<Note>>> GetAllAsync()
+        public async Task<ActionResult<IEnumerable<Note>>> GetAllAsync(CancellationToken cancellationToken)
         {
             _logger.LogInformation("Fetching all notes...");
 
-            var notes = await _repository.GetAllAsync();
+            var notes = await _repository.GetAllAsync(cancellationToken);
 
             _logger.LogInformation("Returned {Count} notes", notes.Count());
 
@@ -41,11 +41,11 @@ namespace NotesApp.API.Controllers
         [HttpGet("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<Note>> GetByIdAsync(Guid id)
+        public async Task<ActionResult<Note>> GetByIdAsync(Guid id,CancellationToken cancellationToken)
         {
             _logger.LogInformation("Fetching note with Id: {NoteId}", id);
 
-            var note = await _repository.GetByIdAsync(id);
+            var note = await _repository.GetByIdAsync(id, cancellationToken);
 
             if (note == null)
             {
@@ -63,7 +63,7 @@ namespace NotesApp.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<Note>> CreateAsync([FromBody] CreateNoteDTO dto)
+        public async Task<ActionResult<Note>> CreateAsync([FromBody] CreateNoteDTO dto, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Attempting to create a new note...");
 
@@ -86,7 +86,7 @@ namespace NotesApp.API.Controllers
 
             try
             {
-                var created = await _repository.AddAsync(note);
+                var created = await _repository.AddAsync(note,cancellationToken);
 
                 _logger.LogInformation("Note successfully created with Id: {NoteId}", created.Id);
 
@@ -107,7 +107,7 @@ namespace NotesApp.API.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> UpdateAsync(Guid id, [FromBody] UpdateNoteDTO dto)
+        public async Task<IActionResult> UpdateAsync(Guid id, [FromBody] UpdateNoteDTO dto,CancellationToken cancellationToken)
         {
             _logger.LogInformation("Attempting to update note with Id: {NoteId}", id);
 
@@ -128,7 +128,7 @@ namespace NotesApp.API.Controllers
                 LastUpdatedAt = DateTime.UtcNow
             };
 
-            var updated = await _repository.UpdateAsync(note);
+            var updated = await _repository.UpdateAsync(note,cancellationToken);
 
             if (!updated)
             {
@@ -146,11 +146,11 @@ namespace NotesApp.API.Controllers
         [HttpDelete("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> DeleteAsync(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Attempting to delete note with Id: {NoteId}", id);
 
-            var deleted = await _repository.DeleteAsync(id);
+            var deleted = await _repository.DeleteAsync(id, cancellationToken);
 
             if (!deleted)
             {
